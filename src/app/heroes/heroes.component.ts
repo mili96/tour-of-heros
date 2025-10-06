@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Hero } from '../models';
 import { FormsModule } from '@angular/forms';
+import { HEROES } from '../mock-heroes';
+import { Hero } from '../models';
 
 @Component({
   selector: 'app-heroes',
@@ -11,8 +12,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './heroes.component.scss',
 })
 export class HeroesComponent {
-  hero: Hero = {
-    id: 1,
-    name: 'windstorm',
-  };
+  heroes = HEROES;
+  selectedHero?: Hero;
+
+  onSelect(selectedHero: Hero) {
+    this.selectedHero = selectedHero;
+  }
 }
